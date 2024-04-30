@@ -1,17 +1,24 @@
 const express = require('express')
 const path = require ('path')
 const app = express()
+const PORT = 3000
 
 // The following HTML routes should be created:
 
+//static files are being served from the public folder
+app.use(express.static('public'));
 // GET /notes should return the notes.html file.
 app.get('/notes', (req,res) => {
-    res.sendFile(path.join(__dirname, 'notes.html'))
+    res.sendFile(path.join(__dirname, './public/notes.html'))
 });
 // GET * should return the index.html file.
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, 'index.html'))
 );
+//tell the server it needs to be listening for input
+app.listen(PORT, () => {
+    console.log(`The server is listening at http://localhost:${PORT}`)
+})
 // The following API routes should be created:
 
 // GET /api/notes should read the db.json file and return all saved notes as JSON.
