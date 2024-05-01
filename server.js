@@ -44,7 +44,6 @@ app.post('/api/notes', (req, res) => {
 
 })
 
-
 // GET /notes should return the notes.html file.
 app.get('/notes', (req, res) => {
   res.sendFile(path.join(__dirname, './public/notes.html'))
@@ -53,7 +52,6 @@ app.get('/notes', (req, res) => {
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, './public/index.html'))
 );
-
 
 //listen for the server
 app.listen(PORT, () => {
