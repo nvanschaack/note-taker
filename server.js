@@ -33,7 +33,7 @@ app.post('/api/notes', (req, res) => {
   const parsedData = db
   parsedData.push(newNote)
 
-  fs.writeFile('./db/db.json', JSON.stringify(parsedData), (error, result)=> {
+  fs.writeFile('./db/db.json', JSON.stringify(parsedData, null, 2), (error, result)=> {
     if (error) {
       console.error(error)
     } else {
